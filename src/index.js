@@ -1,12 +1,12 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
-import * as serviceWorker from './serviceWorker';
+import ReactDOM from 'react-dom';  //项目运行的核心
+// 加载TodoList文件
+import TodoList from './TodoList/TodoList';
 
-ReactDOM.render(<App />, document.getElementById('root'));
 
-// If you want your app to work offline and load faster, you can change
-// unregister() to register() below. Note this comes with some pitfalls.
-// Learn more about service workers: http://bit.ly/CRA-PWA
-serviceWorker.unregister();
+// 把组件挂载到某个DOM节点上     直接通过标签形式使用自定义组件    组件名以大写字母开头
+// 只去渲染id=root的节点
+ReactDOM.render(<TodoList />, document.getElementById('root'));
+
+
+// serviceWorker.unregister();
