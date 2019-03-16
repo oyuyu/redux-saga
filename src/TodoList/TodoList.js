@@ -41,7 +41,7 @@ class TodoList extends Component {
       delItem={this.delItem}
     />;
   }
-  // 一般在这里写异步请求   使用thunk中间件 可写在action中统一管理
+
   componentDidMount(){
     const action=getInitAsynicAction()
     // 使用saga中间件  dispatch action时不仅仅store能接收到 sagas也能接收到
