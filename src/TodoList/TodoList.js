@@ -4,13 +4,12 @@ import React, { Component} from 'react';
 // 引入store  用于数据的读取    //const data=['自律','自由']
 // import store from '../store/index'
 // 如果是index.js文件后面的部分可以不写
-import store from '../store' 
-
+import store from '../store/main' 
+// import axios from 'axios';
 import ComponentUI from './TodoListUI'
 
 // import {CHANGE_IPTVAL,ADDITEM, DELITEM} from '../store/actionType'
-// import {getInitItemAction,getIptValCAction,getAddItemAction,getDelItemAction } from '../store/actionCreater'  
-import {getInitTodoList,getIptValCAction,getAddItemAction,getDelItemAction } from '../store/actionCreater'  
+import {getInitAsynicAction,getInitItemAction,getIptValCAction,getAddItemAction,getDelItemAction } from '../store/actionCreater'  
 
 // 引入统一定义的action type常量
  
@@ -44,22 +43,9 @@ class TodoList extends Component {
   }
   // 一般在这里写异步请求   使用thunk中间件 可写在action中统一管理
   componentDidMount(){
-    // 这个action是个函数
-    const action=getInitTodoList()
-    // 调用store.dispatch(action)时   函数action会被自动执行
+    const action=getInitAsynicAction()
+    // 使用saga中间件  dispatch action时不仅仅store能接收到 sagas也能接收到
     store.dispatch(action)
-
-    // axios.get('/todolist').then((res)=>{
-    //   const data=res.data
-    //   console.log(data);
-      
-    //   const action=getInitItemAction(data)
-    //   store.dispatch(action)
-    //   }
-    // ).catch(
-    //   alert('error')
-    // )
-
   }
   iptValC(e){
     //1. 创建指令（action）
